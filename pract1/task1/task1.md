@@ -1,1 +1,0 @@
-sort passwd | grep -o '^[^:]*'
