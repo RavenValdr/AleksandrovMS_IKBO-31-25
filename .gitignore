@@ -1,0 +1,66 @@
+# Logs and command output
+*.log
+*.out
+*.err
+logs/
+
+# Temporary and editor swap files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+*.rej
+
+# Backup copies of scripts
+*.sh.bak
+*.sh.old
+*.sh.save
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.secret
+secrets/
+credentials*
+*.pem
+*.key
+config.local.sh
+*.local.sh
+
+# Caches and runtime files
+.cache/
+tmp/
+build/
+dist/
+*.pid
+*.sock
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.iml
+.project
+.settings/
+*.code-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Optional: Python/Node artifacts if wrappers are used
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Optional: shellcheck and test coverage
+.shellcheckrc.local
+coverage/
