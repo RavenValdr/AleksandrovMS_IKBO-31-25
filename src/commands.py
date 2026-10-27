@@ -1,4 +1,4 @@
-"""Модуль реализации основных команд оболочки для этапа 4."""
+"""Модуль реализации команд оболочки для этапов 4 и 5."""
 
 import datetime
 import platform
@@ -8,13 +8,14 @@ from src.vfs import VFSNode, VirtualFileSystem
 
 EMPTY_COUNT = 0
 SINGLE_ARG = 1
+MIN_CHOWN_ARGS = 2
 
 
 class CommandExecutor:
     """Исполнитель команд эмулятора оболочки ОС."""
 
     def __init__(self, vfs: VirtualFileSystem) -> None:
-        """Инициализирует привязку команд этапа 4 к методам."""
+        """Инициализирует привязку команд к методам."""
         self.vfs = vfs
         self.should_exit = False
         self.handlers: Dict[str, Callable[[List[str]], str]] = {
@@ -23,6 +24,7 @@ class CommandExecutor:
             "date": self.cmd_date,
             "cat": self.cmd_cat,
             "uname": self.cmd_uname,
+            "chown": self.cmd_chown,
             "exit": self.cmd_exit,
         }
 
@@ -109,3 +111,17 @@ class CommandExecutor:
             info = platform.uname()
             return f"{info.system} {info.node} {info.release} {info.machine}"
         raise ValueError(f"uname: неверный ключ '{args[0]}'")
+
+    def cmd_chown(self, args: List[str]) -> str:
+        """Изменяет владельца файла или каталога в памяти VFS."""
+        if len(args) < MIN_CHOWN_ARGS:
+            raise ValueError("chown: недостаточно аргументов")
+        new_owner = args[0].strip()
+        if not new_owner:
+            raise ValueError("chown: пустое имя владельца")
+        for path in args[1:]:
+            node = self.vfs.resolve_path(path)
+            if node is None:
+                raise ValueError(f"chown: невозможно получить доступ к '{path}'")
+            node.owner = new_owner
+        return ""
