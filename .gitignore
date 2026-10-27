@@ -64,3 +64,20 @@ yarn-error.log*
 # Optional: shellcheck and test coverage
 .shellcheckrc.local
 coverage/
+
+# Second practicum (stages 4 and 5):
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+build/
+dist/
+*.egg-info/
+.vscode/
+.idea/
+*.swp
+*.zip
+*.tar.gz
+*.exe
+*.bin
