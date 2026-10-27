@@ -1,0 +1,10 @@
+ls -l
+chown root hello.txt
+ls -l hello.txt
+chown admin docs docs/readme.txt
+ls -l
+ls -l docs
+chown
+chown only_owner
+chown guest nonexistent_file.txt
+exit
