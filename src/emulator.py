@@ -15,6 +15,7 @@ EMPTY_LEN = 0
 
 def parse_input(line: str) -> List[str]:
     """Раскрывает переменные окружения ОС и разбивает строку."""
+    os.environ.setdefault("HOME", os.path.expanduser("~"))
     expanded = os.path.expandvars(line.strip())
     return expanded.split() if expanded else []
 
