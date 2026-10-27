@@ -1,0 +1,21 @@
+uname
+uname -a
+uname -invalid
+date
+date extra_arg
+ls
+ls -l
+ls docs
+ls nonexistent_dir
+cat hello.txt
+cat docs/readme.txt
+cat docs
+cat missing.txt
+cd docs
+ls
+cd ..
+cd hello.txt
+cd unknown_folder
+ls $HOME
+unknown_cmd
+exit
