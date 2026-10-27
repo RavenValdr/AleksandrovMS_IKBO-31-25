@@ -1,0 +1,11 @@
+ls
+ls -l
+cd $HOME
+cd level1/level2/level3
+ls
+cat secret.txt
+cd /
+unknown_command
+ls --bad-flag
+cd missing_folder
+exit
